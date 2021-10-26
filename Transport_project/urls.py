@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Transport_apps import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('vehiculos/', views.VehiculoView.as_view()),
+    path('rutas/', views.RutaView.as_view()),
+    path('reservas/', views.ReservaView.as_view()),
+    path('user/', views.UserView.as_view()),
+    path('user/<int:pk>/', views.UserDetailView.as_view()),
+    ]

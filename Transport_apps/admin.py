@@ -12,5 +12,6 @@ from .models.vehiculos import Vehiculo
 admin.site.register(Ruta)
 admin.site.register(Reserva)
 admin.site.register(Vehiculo)
+admin.site.register(NewUser)
 
 
