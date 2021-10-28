@@ -106,10 +106,10 @@ WSGI_APPLICATION = 'Transport_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dfaoooo2uiluhb',
-        'USER': 'ettyoubfhvwykd',
-        'PASSWORD': 'd34361e05f241798000c8301352a2be8693446d60fbe65e441146934d602d5c2',
-        'HOST': 'ec2-54-92-230-7.compute-1.amazonaws.com',
+        'NAME': 'd3991rlh3ru9le',
+        'USER': 'fpujoahltuvkdm',
+        'PASSWORD': 'af35f19f8d5e488548be7a8c865a6c8d29b7b966c88130eb2c622314da1c5355',
+        'HOST': 'ec2-54-204-148-110.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
