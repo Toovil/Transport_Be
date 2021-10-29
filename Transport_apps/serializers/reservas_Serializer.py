@@ -9,6 +9,6 @@ class Reserva_Serializer(serializers.ModelSerializer):
         def to_representation(self, obj):
             reserva = Reserva.objects.get(id=obj.email)
             return {
-               'fecha_reserva' : Reserva.fecha_reserva,
-               'email' : Reserva.email
+               'fecha_reserva' : reserva.fecha_reserva,
+               'email' : reserva.email
             }

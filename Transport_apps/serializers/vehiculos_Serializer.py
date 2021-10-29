@@ -10,7 +10,7 @@ class Vehiculo_Serializer(serializers.ModelSerializer):
         def to_representation(self, obj):
             vehiculo = Vehiculo.objects.get(id=obj.vehiculo_Placa)
             return {
-                'vehiculo_Placa' : Vehiculo.vehiculo_Placa,
-                'tipo_Vehiculo' : Vehiculo.tipo_Vehiculo,
-                'capacidad_Vehiculo' : Vehiculo.capacidad_Vehiculo
+                'vehiculo_Placa' : vehiculo.vehiculo_Placa,
+                'tipo_Vehiculo' : vehiculo.tipo_Vehiculo,
+                'capacidad_Vehiculo' : vehiculo.capacidad_Vehiculo
             }

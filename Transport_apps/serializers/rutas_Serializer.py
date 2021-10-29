@@ -9,8 +9,8 @@ class Ruta_Serializer(serializers.ModelSerializer):
         def to_representation(self, obj):
             ruta = Ruta.objects.get(id=obj.email)
             return {
-                'origen' : Ruta.origen,
-                'destino' : Ruta.destino,
-                'vehiculo_placa' : Ruta.vehiculo_placa,
-                'reserva_id': Ruta.reserva_id
+                'origen' : ruta.origen,
+                'destino' : ruta.destino,
+                'vehiculo_placa' : ruta.vehiculo_placa,
+                'reserva_id': ruta.reserva_id
             }
