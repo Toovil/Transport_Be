@@ -23,16 +23,12 @@ class UserManager(BaseUserManager):
         return user        
 
 class NewUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(primary_key=True,unique=True)
+    
+    email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     is_staff = models.BooleanField(default=True)
     
-    def save(self, **kwargs):
-        some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
-        self.password = make_password(self.password, some_salt)
-        super().save(**kwargs)
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name']
     objects = UserManager()
