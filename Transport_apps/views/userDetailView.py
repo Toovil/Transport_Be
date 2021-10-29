@@ -9,6 +9,7 @@ class UserDetailView(generics.RetrieveAPIView):
     queryset = NewUser.objects.all()
     serializer_class = User_Serializer
     permission_classes = (IsAuthenticated,)
+    
     def get(self, request, *args, **kwargs):
         token = request.META.get('HTTP_AUTHORIZATION')[7:]
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
