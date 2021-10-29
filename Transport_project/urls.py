@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Transport_apps import views
-from rest_framework_simplejwt.views import token_obtain_pair
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
+    path('login/', TokenObtainPairView.as_view()),
+    path('refresh/', TokenRefreshView.as_view()),
     path('admin/', admin.site.urls),
     path('vehiculos/', views.VehiculoView.as_view()),
     path('rutas/', views.RutaView.as_view()),
