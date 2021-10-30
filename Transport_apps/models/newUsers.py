@@ -3,7 +3,22 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 from django.contrib.auth.hashers import make_password
 
 class UserManager(BaseUserManager):
-   
+    
+    def _create_user(self, email, first_name, password, is_staff, is_superuser, **other_fields):
+        user = self.model(email = email, first_name = first_name, is_staff=is_staff, is_superuser = is_superuser)
+        user.set_password(password)
+        user.save(using=self.db)
+        return user
+    
+
+    def create_user(self, email, first_name, password = None, **other_fields):
+        return self._create_user(email, first_name, password, False, False, **other_fields)
+    
+
+    def create_superuser(self, email, first_name, password = None, **other_fields):
+        return self._create_user(email, first_name, password, True, True, **other_fields)
+
+    """   
     def create_user(self, email, first_name, password, **other_fields):
 
         if not email:
@@ -21,7 +36,7 @@ class UserManager(BaseUserManager):
         user.is_superuser = True
         user.save(using=self._db)
         return user        
-
+    """
 class NewUser(AbstractBaseUser, PermissionsMixin):
     
     email = models.EmailField(unique=True)
