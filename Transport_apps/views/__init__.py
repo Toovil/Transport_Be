@@ -3,3 +3,4 @@ from .rutasView import RutaView
 from .reservasView import ReservaView
 from .userView import UserView
 from .userDetailView import UserDetailView
+from .userlistView import UserListView

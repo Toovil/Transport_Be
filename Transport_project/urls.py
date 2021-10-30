@@ -27,4 +27,5 @@ urlpatterns = [
     path('reservas/', views.ReservaView.as_view()),
     path('Createuser/', views.UserView.as_view()),
     path('userDetails/<int:pk>/', views.UserDetailView.as_view()),
+    path('userList', views.UserListView.as_view())
     ]

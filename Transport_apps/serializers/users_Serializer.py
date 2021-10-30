@@ -4,7 +4,7 @@ from Transport_apps.models.newUsers import NewUser
 class User_Serializer(serializers.ModelSerializer):
     class Meta:
         model = NewUser
-        fields = ['email','first_name','last_name', 'password']
+        fields = ['id','email','first_name','last_name', 'password']
         
     def create(self, validated_data):
             user = NewUser(**validated_data)
