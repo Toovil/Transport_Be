@@ -7,4 +7,4 @@ from Transport_apps.serializers import User_Serializer
 class UserListView(generics.ListAPIView):
     queryset = NewUser.objects.all()
     serializer_class = User_Serializer
-    permission_classes = (AllowAny)
+    permission_classes = (AllowAny,)
