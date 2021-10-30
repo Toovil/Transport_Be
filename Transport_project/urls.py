@@ -25,6 +25,6 @@ urlpatterns = [
     path('vehiculos/', views.VehiculoView.as_view()),
     path('rutas/', views.RutaView.as_view()),
     path('reservas/', views.ReservaView.as_view()),
-    path('user/', views.UserView.as_view()),
+    path('Createuser/', views.UserView.as_view()),
     path('userDetails/<int:pk>/', views.UserDetailView.as_view()),
     ]

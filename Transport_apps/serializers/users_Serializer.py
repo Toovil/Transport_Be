@@ -6,16 +6,14 @@ class User_Serializer(serializers.ModelSerializer):
         model = NewUser
         fields = ['email','first_name','last_name', 'password']
         
-        def create(self,validated_data):
-            userInstance = NewUser.objects.create(**validated_data)
-            return userInstance
+    def create(self, validated_data):
+            user = NewUser(**validated_data)
+            user.set_password(validated_data['password'])
+            user.save()
+            return user
 
-
-        def to_representation(self, obj):
-            user = NewUser.objects.get(id=obj.email)
-            return {
-                'email' : user.email, 
-                'first_name' : user.first_name,
-                'last_name' : user.last_name, 
-                'password' : user.password 
-            }
+    def update(self, instance, validated_data):
+        updated_user = super().update(instance, validated_data)
+        updated_user.set_password(validated_data['password'])
+        updated_user.save()
+        return updated_user
